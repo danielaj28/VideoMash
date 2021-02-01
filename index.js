@@ -1,6 +1,21 @@
 const fs = require("fs");
 var path = require("path");
 
+var args = process.argv.slice(2);
+
+if (args.length != 2) {
+  console.log(
+    "Command accepts 2 arguments; first being path to the bin folder and the second being the location to save the project file"
+  );
+  console.debug(args);
+  return;
+}
+
+let [binPath, projPath] = args;
+projPath = (path.resolve(projPath) + "/proj.mlt").replace(/\\/g, "/");
+console.log(`Bin Location: ${binPath}`);
+console.log(`Project File Location: ${projPath}`);
+
 let data = `<?xml version="1.0" standalone="no"?>
 <mlt LC_NUMERIC="C" version="6.23.0" title="Shotcut version 20.10.31" producer="main_bin">
   <profile description="PAL 4:3 DV or DVD" width="1920" height="1080" progressive="1" sample_aspect_num="1" sample_aspect_den="1" display_aspect_num="16" display_aspect_den="9" frame_rate_num="30" frame_rate_den="1" colorspace="709"/>
@@ -8,9 +23,11 @@ let data = `<?xml version="1.0" standalone="no"?>
 
 let videoFiles = [];
 
-fs.readdirSync("./bin/").forEach((file) => {
-  videoFiles.push((path.resolve("./bin/") + "/" + file).replace(/\\/g, "/"));
+fs.readdirSync(binPath).forEach((file) => {
+  videoFiles.push((path.resolve(binPath) + "/" + file).replace(/\\/g, "/"));
 });
+
+console.log(`${videoFiles.length} files found in bin`);
 
 let count = 0;
 
@@ -66,7 +83,7 @@ data += `
 </mlt>`;
 
 try {
-  fs.writeFileSync("out.mlt", data);
+  fs.writeFileSync(projPath, data);
   console.log("Success in creating project file!");
 } catch (err) {
   console.error(`Error: ${err}`);
