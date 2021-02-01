@@ -1,0 +1,26 @@
+<?xml version="1.0" standalone="no"?>
+<mlt LC_NUMERIC="C" version="6.23.0" title="Shotcut version 20.10.31" producer="playlist0">
+  <profile description="PAL 4:3 DV or DVD" width="1920" height="1080" progressive="1" sample_aspect_num="1" sample_aspect_den="1" display_aspect_num="16" display_aspect_den="9" frame_rate_num="30" frame_rate_den="1" colorspace="709"/>
+  <producer id="producer0" in="00:00:00.000" out="00:00:36.267">
+    <property name="length">00:00:36.300</property>
+    <property name="eof">pause</property>
+    <property name="resource">C:/Projects/VideoMash/bin/a.mp4</property>
+    <property name="audio_index">1</property>
+    <property name="video_index">0</property>
+    <property name="mute_on_pause">0</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="creation_time">2020-11-28T23:01:56</property>
+    <property name="shotcut:hash">3111da166bf367bfa47cea45c9fd3976</property>
+    <property name="ignore_points">1</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+    <property name="shotcut:caption">a.mp4</property>
+  </producer>
+  <playlist id="playlist0" title="Shotcut version 20.10.31">
+    <property name="shotcut:projectAudioChannels">2</property>
+    <property name="shotcut:projectFolder">0</property>
+    <entry producer="producer0" in="00:00:00.000" out="00:00:36.267"/>
+  </playlist>
+</mlt>
